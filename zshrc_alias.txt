@@ -1,0 +1,64 @@
+#alias
+#Echo "alias’s loading"
+
+alias ..="cd .."
+alias ~="cd ~"
+
+#Github
+alias gst="git status"
+alias ga="git status; git add .; git status"
+alias gp="git push"
+alias gadd="git add .; git status -s -b"
+alias gdif="clear; clear; git diff .; git status"
+alias gitkill="git add .; git stash; git stash clear;"
+alias gc-amd="git commit --amend"
+alias gc='git commit -m "'
+alias glog="git log > log.txt && open log.txt && rm log.txt"
+alias god="git checkout development"
+alias gb="git checkout"
+alias gsave="git add .; git status; git stash"
+alias ghit="git; git stash apply"
+alias USER="git config user.name"
+alias rake="bundle exec rake"
+
+#ports to print out active ports of 3000, 5000 and 8080
+alias ports="netstat -vanp tcp | grep 3000; netstat -vanp tcp | grep 5000; netstat -vanp tcp | grep 8080"
+
+bun() {
+	bundle install
+	jobsDone
+}
+
+DS() {
+	bundle exec cap staging deploy;
+	jobsDone
+}
+
+buildLive() {
+	bundle exec cap production deploy
+	jobsDone
+}
+buildStage() {
+	bundle exec cap staging deploy
+	kingdomToRun
+}
+
+kingdomToRun() {
+	afplay ~/Music/bash_sounds/annoyed3.wav
+}
+yourCommand() {
+	afplay ~/Music/bash_sounds/selected1.wav
+}
+jobsDone() {
+	afplay ~/Music/bash_sounds/work-complete.wav
+}
+
+#VS code editor
+
+who() {
+	USER
+}
+
+Echo "Reece’s command have loaded"
+#yourCommand
+#kingdomToRun
